@@ -39,7 +39,7 @@ echo "cat deletedes.txt | \"s/'/''/g\" >> deletesql.txt" | bash -
 echo "$(cat data/id.txt | shuf -n 1)" > deleteidpost.txt
  # upload image
 cd /home/www/domain
-echo "wp media import $(cat deletetitleamazon.txt | tr -cd '[[:alnum:]] ' | tr A-Z a-z | sed 's| |-|g').jpg --post_id=$(cat /home/ebay/attachment/deleteidpost.txt | ) --porcelain --allow-root > /home/ebay/attachment/deleteid.txt" | bash -
+echo "wp media import $(cat deletetitleamazon.txt | tr -cd '[[:alnum:]] ' | tr A-Z a-z | sed 's| |-|g').jpg --post_id=$(cat /home/ebay/attachment/deleteidpost.txt | shuf -n 1) --porcelain --allow-root > /home/ebay/attachment/deleteid.txt" | bash -
  # sql file 2
 cd /home/ebay/attachment
 echo "cat data/sql2 | sed -e 's|judul2|$(cat deletetitleamazon.txt | tr -cd '[[:alnum:]] ')|g' -e 's|judulstrip2|$(cat deletetitleamazon.txt | tr -cd '[[:alnum:]] ' | tr A-Z a-z | sed 's| |-|g')|g' -e 's|gantiparent|$(cat deleteidpost.txt)|g' -e 's|gantiid|$(cat deleteid.txt)|g' >> deletesql.txt" | bash -
