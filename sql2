@@ -1,0 +1,1 @@
+', `post_title` = 'judul2', `post_name` = 'judulstrip2', `post_parent` = 'gantiparent' WHERE `wp_posts`.`ID` = gantiid;
