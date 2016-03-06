@@ -47,6 +47,7 @@ echo "$(cat deletesql.txt)" | awk 1 ORS='' | sed '$a\' > deletemysql.sql
  # mysql query
 cd /home/www/domain
 wp db query --allow-root < /home/ebay/attachment/deletemysql.sql
+cd /home/ebay/attachment
 else
  clear
 fi
