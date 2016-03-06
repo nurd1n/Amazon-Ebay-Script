@@ -1,5 +1,5 @@
 if [ $(echo "$(cat imageamazon.py)" | sed 's/asin2/asin1/g' | python - |wc -l) -gt "0" ]; then
- echo "echo \"\$(cat titleamazon.py)\" | sed 's/asin2/asin1/g' | python - | tr -cd '[[:alnum:]] .,/&()%:' | sed 's/.*/\L&/; s/[a-z]*/\u&/g' | cut -c -150 | sed 's/.*/$(printf "Best Buy New \nBest Price New \nBest Cheap New \nBest Compare New \nNew Best Buy \nNew Best Price \nNew Best Cheap \nNew Best Compare" | shuf -n 1)&$(printf " On Sale 2016\n Review 2016\n Discount 2016" | shuf -n 1)/' > deletetitleamazon.txt"
+ echo "echo \"\$(cat titleamazon.py)\" | sed 's/asin2/asin1/g' | python - | tr -cd '[[:alnum:]] .,/&()%:' | sed 's/.*/\L&/; s/[a-z]*/\u&/g' | cut -c -150 | sed 's/.*/$(printf "Best Buy New \nBest Price New \nBest Cheap New \nBest Compare New \nNew Best Buy \nNew Best Price \nNew Best Cheap \nNew Best Compare" | shuf -n 1)&$(printf " On Sale 2016\n Review 2016\n Discount 2016" | shuf -n 1)/' > deletetitleamazon.txt" | bash -
  echo "$(cat titleamazon.py)" | sed 's/asin2/asin1/g' | python - | tr -cd '[[:alnum:]] .,&:' | sed 's/.*/\L&/; s/[a-z]*/\u&/g' > deletetitleamazon2.txt
  echo "echo \"\$(cat urlebay.py)\" | sed 's/keyword/$(cat deletetitleamazon2.txt | tr -cd '[[:alnum:]] ' | sed 's/ /+/g')/g' | python -" | bash - | sed -n 1,5p > deleteebayurl.txt
  cat deleteebayurl.txt | while read line; do
