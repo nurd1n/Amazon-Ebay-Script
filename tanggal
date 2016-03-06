@@ -1,0 +1,7 @@
+date +"%A, %B %d, %Y %r" --date="tanggal waktu"
+date --date="tanggal waktu"
+date +"%a, %B %d, %Y %r" --date="tanggal waktu"
+date +"%A, %b %d, %Y %r" --date="tanggal waktu"
+date +"%A, %b %d, %Y %R" --date="tanggal waktu"
+date +"%a, %B %d, %Y %R" --date="tanggal waktu"
+date +"%A, %B %d, %Y %R" --date="tanggal waktu"
