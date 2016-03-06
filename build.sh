@@ -33,8 +33,7 @@ echo "exiftool -Title=\"$(cat deletetitleamazon.txt)\" -Author=\"$(cat deleteaut
  # sql file 1
 echo "cat data/sql1 | sed -e 's|author2|$(cat deleteauthor2.txt)|g' -e 's|tanggal|$(cat deletetanggal.txt)|g' -e 's|waktu|$(cat deletewaktu.txt)|g' >> deletesql.txt" | bash -
  # input description
-sed -i  deletedes.txt
-echo "cat deletedes.txt | \"s/'/''/g\" >> deletesql.txt" | bash -
+echo "cat deletedes.txt | sed \"s/'/''/g\" >> deletesql.txt" | bash -
  # shuffle id post
 echo "$(cat data/id.txt | shuf -n 1)" > deleteidpost.txt
  # upload image
