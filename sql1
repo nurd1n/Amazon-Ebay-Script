@@ -1,0 +1,1 @@
+UPDATE `wp_domain`.`wp_posts` SET `post_author` = 'author2', `post_date` = 'tanggal waktu', `post_date_gmt` = 'tanggal waktu', `post_content` = '
