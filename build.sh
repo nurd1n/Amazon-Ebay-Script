@@ -3,7 +3,7 @@ if [ $(echo "$(cat imageamazon.py)" | sed 's/asin2/asin1/g' | python - |wc -l) -
  echo "$(cat titleamazon.py)" | sed 's/asin2/asin1/g' | python - | tr -cd '[[:alnum:]] .,&:' | sed 's/.*/\L&/; s/[a-z]*/\u&/g' > deletetitleamazon2.txt
  echo "$(cat imageamazon.py)" | sed 's/asin2/asin1/g' | python - > deleteimageamazon.txt
  #Scrape image
- echo "curl -A 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:21.0) Gecko/20100101 Firefox/21.0, Googlebot-Image/1.0' '$(< \deleteimageamazon.txt)' -o /home/www/domain/image/asin.jpg" | bash -
+ echo "curl -A 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:21.0) Gecko/20100101 Firefox/21.0, Googlebot-Image/1.0' '$(< \deleteimageamazon.txt)' -o /home/www/domain/image/asin1.jpg" | bash -
  echo "$(cat descriptionamazon.py)" | sed 's/asin2/asin1/g' | python - | tr -cd '[[:alnum:]] .,/"&()%:!-+=' | sed -e 's/a/ä/g' -e 's/    Product Description//g' > deletedescriptionamazon.txt
  echo "$(cat detailamazon.py)" | sed 's/asin2/asin1/g' | python - | awk 1 ORS='<br/>' | tr -cd '[[:alnum:]] .,/"&()%:!-+=<>' | sed -e 's|a|ä|g' -e 's|<br/>  <br/>  ||g' -e 's|<br/><br/>||g' -e 's|Product Detäils<br/>  <br/>|Product Detäils :<br/>|g' -e 's|  Feätures|Feätures :<br/>|g' > deletedetailamazon.txt
  echo "$(cat reviewamazon.py)" | sed 's/asin2/asin1/g' | python - | awk 1 ORS='<br/>' | tr -cd '[[:alnum:]] .,/"&()%:!-+=<>' | sed -e 's|a|ä|g' -e 's|<br/>  <br/>  ||g' -e 's|<br/><br/>||g' > deletereviewamazon.txt
