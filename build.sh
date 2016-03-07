@@ -47,7 +47,10 @@ echo "$(cat deletesql.txt)" | awk 1 ORS='' | sed '$a\' > deletemysql.sql
  # mysql query
 cd /home/www/domain
 wp db query --allow-root < /home/ebay/attachment/deletemysql.sql
+echo "echo \"\$(wp post get $(cat /home/ebay/attachment/deleteidpost.txt) --field=guid --allow-root)/\$(wp post get $(cat /home/ebay/attachment/deleteid.txt) --field=post_name --allow-root)\" > $(cat /home/ebay/attachment/deleteurlattachment.txt)" | bash -
 cd /home/ebay/attachment
+# sitemap
+echo "cat data/sitemap | sed -e 's|urlattachment|$(< \deleteurlattachment.txt)|g' -e 's|tanggal|$(< \deletetanggal.txt)|g' -e 's|waktu|$(< \deletewaktu.txt)|g' -e 's|postdate|$(< \deletepostdate.txt)|g' >> sitemap-attachment.xml" | bash -
 else
  clear
 fi
