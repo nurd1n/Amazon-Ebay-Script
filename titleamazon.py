@@ -27,5 +27,5 @@ except urllib2.HTTPError, e:
 
 content = page.read()
 soup = BeautifulSoup(content)
-for child in soup.title:
+for child in soup.h1:
     print(child)
